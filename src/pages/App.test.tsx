@@ -2,7 +2,8 @@
 import { render, screen } from '@testing-library/react';
 import App from '../App';
 import { vi } from 'vitest';
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
+
 
 // ✅ Corrected: Mocks should return { default: Component }
 vi.mock('./Books', () => ({
