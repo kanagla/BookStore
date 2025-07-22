@@ -1,6 +1,6 @@
 // src/pages/Books.test.tsx
 import { render, screen } from '@testing-library/react';
-import Books from './Books';
+import Books from '../pages/Books';
 import React from 'react';
 import { describe, expect, it, vi } from 'vitest';
 

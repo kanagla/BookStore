@@ -1,7 +1,8 @@
 // src/pages/BookDetail.test.tsx
 import { render, screen } from '@testing-library/react';
-import BookDetail from './BookDetail';
+import BookDetail from '../pages/BookDetail';
 import { describe, expect, it, vi } from 'vitest';
+
 
 // ✅ Mock useParams from react-router-dom
 vi.mock('react-router-dom', () => ({
