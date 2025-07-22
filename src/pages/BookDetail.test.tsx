@@ -1,7 +1,8 @@
 // src/pages/BookDetail.test.tsx
 import { render, screen } from '@testing-library/react';
-import BookDetail from '../pages/BookDetail';
+import BookDetail from './BookDetail';
 import { describe, expect, it, vi } from 'vitest';
+
 
 
 // ✅ Mock useParams from react-router-dom
@@ -13,7 +14,6 @@ vi.mock('react-router-dom', () => ({
 vi.mock('../components/Header', () => ({
   default: () => <div>Mock Header</div>,
 }));
-
 describe('BookDetail component', () => {
   it('renders book detail with mocked route param', () => {
     render(<BookDetail />);
