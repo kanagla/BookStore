@@ -1,0 +1,10 @@
+// tsconfig.cypress.json
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "types": ["cypress"],
+    "target": "ES2020",
+    "module": "ESNext"
+  },
+  "include": ["cypress/**/*.ts"]
+}

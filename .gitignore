@@ -1,0 +1,69 @@
+# Node dependencies
+node_modules/
+
+# Build outputs
+dist/
+build/
+dist-ssr/
+.next/
+out/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Local env
+.env
+.env.*.local
+!.env.example
+
+# Cypress
+cypress/screenshots/
+cypress/videos/
+cypress/results/
+cypress-coverage/
+
+# Test coverage
+coverage/
+.nyc_output/
+
+# TypeScript cache
+*.tsbuildinfo
+
+# ESLint and Prettier
+.eslintcache
+
+# Editor files
+.vscode/
+!.vscode/extensions.json
+.idea/
+*.sw?
+*.sublime*
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# GitHub Actions
+.github/workflows/*.log
+
+# Docker
+docker-compose.override.yml
+*.local.yml
+*.pid
+*.sock
+
+# Misc
+*.tgz
+*.bak
+*.old
+*.orig
