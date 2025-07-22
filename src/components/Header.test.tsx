@@ -1,10 +1,11 @@
-// import { render, screen } from '@testing-library/react';
-// import Header from './Header';
+import { render, screen } from '@testing-library/react';
+import Header from './Header';
+import { describe, it, expect } from 'vitest';
 
-// describe('Header component', () => {
-//   it('renders the app title correctly', () => {
-//     render(<Header />);
-//     const heading = screen.getByRole('heading', { name: /bookstore app/i });
-//     expect(heading).toBeInTheDocument();
-//   });
-// });
+describe('Header component', () => {
+  it('renders the app title correctly', () => {
+    render(<Header />);
+    const heading = screen.getByRole('heading', { name: /bookstore app/i });
+    expect(heading).toBeInTheDocument();
+  });
+});

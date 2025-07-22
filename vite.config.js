@@ -43,17 +43,25 @@ export default defineConfig({
     test: {
         globals: true,
         environment: 'jsdom',
+        setupFiles: ['src/setupTests.ts'],
         coverage: {
             provider: 'v8',
-            reporter: ['text', 'html'],
             reportsDirectory: './coverage',
+            reporter: ['text', 'html'],
+            include: ['**/*.test.tsx'],
+            // ✅ Only test files
             exclude: [
                 '**/node_modules/**',
                 '**/dist/**',
-                '**/coverage/**',
                 '**/*.d.ts',
-                'src/setupTests.ts',
-            ],
-        },
+                '**/coverage/**',
+                'src/types/',
+                '**/setupTests.ts',
+                '**/test-utils.tsx',
+                '**/mocks/**',
+                '**/main.tsx',
+                '**/vite.config.ts'
+            ]
+        }
     },
 });
