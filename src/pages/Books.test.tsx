@@ -1,9 +1,11 @@
 // src/pages/Books.test.tsx
 import { render, screen } from '@testing-library/react';
 import Books from './Books';
+import React from 'react';
+import { vi } from 'vitest';
 
-// 👇 Mock react-router-dom
-jest.mock('react-router-dom', () => ({
+// 👇 Mock react-router-dom's Link component
+vi.mock('react-router-dom', () => ({
   Link: ({ to, children }: { to: string; children: React.ReactNode }) => <a href={to}>{children}</a>,
 }));
 

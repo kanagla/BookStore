@@ -1,17 +1,23 @@
 // src/App.test.tsx
 import { render, screen } from '@testing-library/react';
 import App from '../App';
+import { vi } from 'vitest';
 
 
-// Mock child pages
-jest.mock('./Books', () => () => <div>Mock Books Page</div>);
-jest.mock('./BookDetail', () => () => <div>Mock Book Detail Page</div>);
+// ✅ Corrected: Mocks should return { default: Component }
+vi.mock('./Books', () => ({
+  default: () => <div>Mock Books Page</div>,
+}));
 
-// Mock BrowserRouter, Routes, and Route completely — no actual react-router loaded
-jest.mock('react-router-dom', () => ({
+vi.mock('./BookDetail', () => ({
+  default: () => <div>Mock Book Detail Page</div>,
+}));
+
+// ✅ Mock react-router-dom components
+vi.mock('react-router-dom', () => ({
   BrowserRouter: ({ children }: any) => <div>{children}</div>,
   Routes: ({ children }: any) => <div>{children}</div>,
-  Route: ({ element }: any) => <div>{element}</div>,
+  Route: ({ element }: any) => <>{element}</>,
 }));
 
 describe('App component', () => {
