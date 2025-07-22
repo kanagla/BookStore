@@ -15,7 +15,7 @@
     "test:coverage": "vitest run --coverage",
     "cy:open": "cypress open",
     "cy:run": "cypress run",
-    "test:e2e": "start-server-and-test --timeout 100000 preview http://localhost:5173 cy:run"
+    "test:e2e": "START_SERVER_AND_TEST_TIMEOUT=100000 start-server-and-test npm run preview http://localhost:5173 npm run cy:run"
   },
   "dependencies": {
     "react": "^19.1.0",
