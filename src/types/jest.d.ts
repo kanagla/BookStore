@@ -1,10 +1,12 @@
+// src/jest.d.ts
 import '@testing-library/jest-dom';
 
-// This extends Jest matchers globally
 declare global {
   namespace jest {
     interface Matchers<R> {
       toBeInTheDocument(): R;
+      toHaveTextContent(content: string | RegExp): R;
+      toHaveAttribute(attr: string, value?: string): R;
     }
   }
 }
