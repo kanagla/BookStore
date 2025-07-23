@@ -13,8 +13,8 @@ export default defineConfig({
     coverage: {
       all: true, // ✅ ensure it checks even untested files
       provider: 'v8',
-      reporter: ['text', 'html', 'lcov'],
-      reportsDirectory: './coverage',
+      reporter: ['text', 'json', 'lcov', 'json-summary'],
+      reportsDirectory: 'coverage',
       include: ['src/**/*.{ts,tsx}'],
       exclude: [
         'src/main.tsx',
