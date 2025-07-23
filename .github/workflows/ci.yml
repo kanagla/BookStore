@@ -1,4 +1,3 @@
-# .github/workflows/ci.yml
 name: CI Pipeline
 
 on:
@@ -18,6 +17,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
@@ -28,11 +28,12 @@ jobs:
       - run: tsc --noEmit && npm run build
 
   test:
-    name: Unit Tests & Coverage
+    name: Unit Tests, Lint, Format Check
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v4
+
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
@@ -44,6 +45,9 @@ jobs:
 
       - name: Run Lint
         run: npm run lint
+
+      - name: Check Prettier Formatting
+        run: npm run format:check
 
       - name: Run Type Check
         run: npm run type-check || tsc --noEmit
@@ -57,12 +61,12 @@ jobs:
           name: coverage-report
           path: coverage
 
-      # - name: Enforce Coverage Threshold
-      #   run: |
-      #     threshold=80
-      #     total=$(npx --yes json -f coverage/coverage-summary.json -e "this.total.lines.pct")
-      #     echo "Total coverage: $total%"
-      #     awk -v t=$threshold -v c=$total 'BEGIN { exit (c < t) ? 1 : 0 }'
+      - name: Enforce minimum coverage
+        run: |
+          threshold=80
+          total=$(npx --yes json -f coverage/coverage-summary.json total.statements.pct)
+          echo "Statements coverage: $total%"
+          awk -v t=$threshold -v c=$total 'BEGIN { exit (c < t) ? 1 : 0 }'
 
   e2e:
     name: Cypress E2E Tests
@@ -87,11 +91,16 @@ jobs:
       - name: Run Cypress E2E Tests
         run: npm run test:e2e
 
-      - name: Upload Cypress Videos and Screenshots
-        if: always()
+      - name: Upload Cypress Videos (if they exist)
+        if: ${{ always() && hashFiles('cypress/videos/**/*') != '' }}
         uses: actions/upload-artifact@v4
         with:
-          name: cypress-results
-          path: |
-            cypress/videos
-            cypress/screenshots
+          name: cypress-videos
+          path: cypress/videos
+
+      - name: Upload Cypress Screenshots (if they exist)
+        if: ${{ always() && hashFiles('cypress/screenshots/**/*') != '' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-screenshots
+          path: cypress/screenshots

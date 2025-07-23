@@ -6,7 +6,6 @@
     "module": "ESNext",
     "moduleResolution": "Node",
     "skipLibCheck": true,
-
     /* Compatibility */
     "jsx": "react-jsx",
     "esModuleInterop": true,
@@ -20,12 +19,13 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },
-  "include": [
-    "src/pages/vite.config.ts",
-    "cypress/**/*.ts",
-    "src/setupTests.ts",
-    "**/*.test.ts",
-    "**/*.test.tsx",
-    "**/*.tsx"
-  ]
+  // "include": [
+  //   "src/pages/vite.config.ts",
+  //   "cypress/**/*.ts",
+  //   "src/setupTests.ts",
+  //   "**/*.test.ts",
+  //   "**/*.test.tsx",
+  //   "**/*.tsx"
+  // ]
+  "include": ["src"]
 }

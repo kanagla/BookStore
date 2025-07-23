@@ -3,8 +3,6 @@ import { render, screen } from '@testing-library/react';
 import BookDetail from './BookDetail';
 import { describe, expect, it, vi } from 'vitest';
 
-
-
 // ✅ Mock useParams from react-router-dom
 vi.mock('react-router-dom', () => ({
   useParams: () => ({ id: '5' }),

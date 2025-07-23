@@ -2,9 +2,11 @@ import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 
 const Books = () => {
+  console.log('📘 Books.tsx loaded'); // ✅ This will confirm the file is loaded during test
+
   const books = [
     { id: 1, title: 'Javascript' },
-    { id: 2, title: 'Atomic Habits' }
+    { id: 2, title: 'Atomic Habits' },
   ];
 
   return (

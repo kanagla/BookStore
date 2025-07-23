@@ -27,10 +27,10 @@
 //   collectCoverageFrom: ['src/**/*.{ts,tsx}', '!**/node_modules/**'],
 //    coveragePathIgnorePatterns: [
 //     '/node_modules/',
-//     '\\.d\\.ts$',          
-//     'src/types/',          
+//     '\\.d\\.ts$',
+//     'src/types/',
 //     'test-utils.tsx',
-//     "src/main.tsx",        
+//     "src/main.tsx",
 //   ],
 // };
 
