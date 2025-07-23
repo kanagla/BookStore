@@ -9,7 +9,9 @@ const BookDetail = () => {
       <Header />
       <main style={{ padding: '1rem' }}>
         <h2>Book Details</h2>
-        <p>You are viewing details for Book ID: <strong>{id}</strong></p>
+        <p>
+          You are viewing details for Book ID: <strong>{id}</strong>
+        </p>
       </main>
     </>
   );

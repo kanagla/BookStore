@@ -4,7 +4,7 @@ import Header from '../components/Header';
 const Books = () => {
   const books = [
     { id: 1, title: 'Javascript' },
-    { id: 2, title: 'Atomic Habits' }
+    { id: 2, title: 'Atomic Habits' },
   ];
 
   return (

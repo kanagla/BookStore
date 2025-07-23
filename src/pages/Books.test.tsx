@@ -6,7 +6,9 @@ import { describe, expect, it, vi } from 'vitest';
 
 // 👇 Mock react-router-dom's Link component
 vi.mock('react-router-dom', () => ({
-  Link: ({ to, children }: { to: string; children: React.ReactNode }) => <a href={to}>{children}</a>,
+  Link: ({ to, children }: { to: string; children: React.ReactNode }) => (
+    <a href={to}>{children}</a>
+  ),
 }));
 
 describe('Books', () => {
