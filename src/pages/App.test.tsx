@@ -1,22 +1,12 @@
 // src/App.test.tsx
 import { render, screen } from '@testing-library/react';
+import { describe, expect, it } from 'vitest';
 import App from '../App';
 
 
-// Mock child pages
-jest.mock('./Books', () => () => <div>Mock Books Page</div>);
-jest.mock('./BookDetail', () => () => <div>Mock Book Detail Page</div>);
-
-// Mock BrowserRouter, Routes, and Route completely — no actual react-router loaded
-jest.mock('react-router-dom', () => ({
-  BrowserRouter: ({ children }: any) => <div>{children}</div>,
-  Routes: ({ children }: any) => <div>{children}</div>,
-  Route: ({ element }: any) => <div>{element}</div>,
-}));
-
-describe('App component', () => {
-  it('renders Books page (mocked)', () => {
+describe('App integration test', () => {
+  it('renders the App with default route', () => {
     render(<App />);
-    expect(screen.getByText('Mock Books Page')).toBeInTheDocument();
+    expect(screen.getByText(/Available Books/i)).toBeInTheDocument(); // Match real text in Books.tsx
   });
 });
