@@ -61,11 +61,10 @@ jobs:
           name: coverage-report
           path: coverage
 
-      - name: Enforce Coverage Threshold
+      - name: Enforce minimum coverage
         run: |
           threshold=80
-          raw=$(npx --yes json -f coverage/coverage-summary.json -e "this.total.statements.pct")
-          total=$(echo "$raw" | tr -d '"' | tr -d '\r' | tr -d '\n')
+          total=$(npx --yes json -f coverage/coverage-summary.json total.statements.pct)
           echo "Statements coverage: $total%"
           awk -v t=$threshold -v c=$total 'BEGIN { exit (c < t) ? 1 : 0 }'
 
