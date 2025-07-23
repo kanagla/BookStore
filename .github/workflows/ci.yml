@@ -64,10 +64,11 @@ jobs:
       - name: Enforce Coverage Threshold
         run: |
           threshold=80
-          raw=$(npx --yes json -f coverage/coverage-summary.json -e "this.total.lines.pct")
+          raw=$(npx --yes json -f coverage/coverage-summary.json -e "this.total.statements.pct")
           total=$(echo "$raw" | tr -d '"' | tr -d '\r' | tr -d '\n')
-          echo "Total coverage: $total%"
+          echo "Statements coverage: $total%"
           awk -v t=$threshold -v c=$total 'BEGIN { exit (c < t) ? 1 : 0 }'
+
 
   e2e:
     name: Cypress E2E Tests
