@@ -69,7 +69,6 @@ jobs:
           echo "Statements coverage: $total%"
           awk -v t=$threshold -v c=$total 'BEGIN { exit (c < t) ? 1 : 0 }'
 
-
   e2e:
     name: Cypress E2E Tests
     runs-on: ubuntu-latest
