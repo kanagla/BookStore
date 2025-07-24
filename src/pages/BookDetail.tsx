@@ -2,7 +2,10 @@ import { useParams } from 'react-router-dom';
 import Header from '../components/Header';
 
 const BookDetail = () => {
-  const { id } = useParams();
+  const { id } = ;
+
+  let age:number = "welcome";
+  function myName(name:string){return"hello, "+name}
 
   return (
     <>
